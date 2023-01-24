@@ -1,0 +1,30 @@
+*{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.profile-img-holder{
+    width: 30%;
+}
+.profile-img-holder img{
+    width: 100%;
+}
+.info-holder{
+    width: 60%;
+}
+.info-holder h2, .info-holder p{
+    font-weight: bolder;
+}
+.info-holder h2{
+    font-size: 42px;
+}
+.info-holder p{
+    font-size: 24px;
+}
+.show-profile-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #FFD300;
+    width: 100%;
+    padding: 20px 0;
+}
