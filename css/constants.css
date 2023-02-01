@@ -1,5 +1,9 @@
 *{
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', sans-serif;
+}
+.no-style-btn{
+    background: none;
+    border: none;
 }
 
 header{
@@ -17,7 +21,7 @@ a{
 }
 .logo{
 
-    color: #FFD300;
+    color: #ced4da;
 }
 .search-input{
     width: 45%;
@@ -30,7 +34,7 @@ a{
     width: 100%;
     border-radius: 20px;
     padding: 5px 15px;
-    background-color: #FFD300;
+    background-color: #ced4da;
     color: #222;
 }
 .search-icon-my{
@@ -84,7 +88,7 @@ a{
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #FFD300;
+    background-color: #ced4da;
 }
 .card{
    /*background-image: url("../img/rain.jpg") !important;*/
@@ -110,7 +114,7 @@ a{
     font-weight: bolder;
 }
 .content-my{
-    background-color: #FFD300;
+    background-color: #c0b9dd;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -119,11 +123,12 @@ a{
 }
 footer{
     background-color: #222;
-    color: #FFD300;
+    color: #ced4da;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    padding: 25px 40px;
+    
 }
 footer p{
     font-size: 16px;

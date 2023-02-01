@@ -1,20 +1,24 @@
+
+
+
 .kartica{
     border-radius: 20px;
-    width: 18rem;
     margin-bottom: 10%;
     background-color: transparent;
+    width: 40%;
 }
 
 .kartica-head{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
     color: white;
     background-color: #222;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     padding: 30px;
     box-shadow: 0 0 5px #222;
+
 }
 
 .kartica-body{
@@ -29,16 +33,22 @@
     box-shadow: 0 0 5px #222;
 }
 .kartica-temp-holder{
-    display: flex;
-    align-items: center;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.kartica-temp-holder p{
-    font-size: 30px;
-    font-weight: bold;
+.kartica-temp-holder p, .kartica-temp-holder h3{
+    margin: 0;
 }
-@media (min-width: 2143px){
-    .kartica{
-        margin: 0;
-    }
+.kartica-left-holder p, .kartica-right-holder p {
+    margin: 0;
+}
+.holder-parent{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.weather-holder-desc{
+    text-transform: capitalize;
 }

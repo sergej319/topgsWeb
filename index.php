@@ -14,102 +14,155 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&700display=swap" rel="stylesheet">
 </head>
 
-<?php require 'constants/header.php'; ?>
+<?php
+require 'constants/header.php';
+require "config/config.php";
+require "config/functions.php";
+require 'api_data/api_index.php';
+
+
+
+
+?>
 <div class="content-my">
+    <?php
+    ?>
+    <!--Belgrade Card -->
+    <form action="city.php" method="post">
+        <button class="no-style-btn">
+            <div id="kartica-su" class="kartica">
+                <div class="kartica-head">
+                    <h4>Belgrade,</h4>
+                    <h4><?php echo $response_bg->sys->country ?></h4>
+                    <img src="https://flagsapi.com/<?php echo $response_bg->sys->country ?>/flat/48.png">
+                </div>
+                <div class="kartica-body">
+                    <div class="kartica-temp-holder">
+                        <img src="http://openweathermap.org/img/wn/<?php echo $response_bg->weather[0]->icon ?>@2x.png" alt="">
+                        <p><?php echo round($response_bg->main->temp) ?>° C</p>
+                    </div>
 
-    <div class="card" style="width: 18rem; background-image: url('img/rain.jpg')">
+                    <p>Air Quality: <?php echo getAirQuality($response_air_bg) ?></p>
+                    <p>Humidity: <?php echo $response_bg->main->humidity ?>%</p>
+                    <p>Visibilty: <?php echo $response_bg->visibility / 1000  ?>km</p>
+                    <input type="text" value="<?php echo $response_bg->coord->lon; ?>" name="lon" hidden>
+                    <input type="text" value="<?php echo $response_bg->coord->lat; ?>" name="lat" hidden>
+                </div>
 
-        <div class="card-body">
-            <h5 id="name-su" class="card-title"></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li id="temperature-su" class="list-group-item"> </li>
-            <li id="country-su" class="list-group-item"> </li>
-            <li id="humidity-su" class="list-group-item"> </li>
-        </ul>
-        <div class="card-body">
+            </div>
+        </button>
+    </form>
 
-        </div>
-    </div>
 
-    <div class="card" style="width: 18rem; background-image: url('img/rain.jpg')">
 
-        <div class="card-body">
-            <h5 id="name-bg" class="card-title">Beograd</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li id="temperature-bg" class="list-group-item"> </li>
-            <li id="country-bg" class="list-group-item"> </li>
-            <li id="humidity-bg" class="list-group-item"> </li>
-        </ul>
-        <div class="card-body">
+    <!--London Card -->
+    <form action="city.php" method="post">
+        <button class="no-style-btn">
+            <div id="kartica-su" class="kartica">
+                <div class="kartica-head">
+                    <h4>London,</h4>
+                    <h4><?php echo $response_ld->sys->country ?></h4>
+                    <img src="https://flagsapi.com/<?php echo $response_ld->sys->country ?>/flat/48.png">
+                </div>
+                <div class="kartica-body">
+                    <div class="kartica-temp-holder">
+                        <img src="http://openweathermap.org/img/wn/<?php echo $response_ld->weather[0]->icon ?>@2x.png" alt="">
+                        <p><?php echo round($response_ld->main->temp) ?>° C</p>
+                    </div>
 
-        </div>
+                    <p>Air Quality: <?php echo getAirQuality($response_air_ld) ?></p>
+                    <p>Humidity: <?php echo $response_ld->main->humidity ?>%</p>
+                    <p>Visibilty: <?php echo $response_ld->visibility / 1000  ?>km</p>
+                    <input type="text" value="<?php echo $response_ld->coord->lon; ?>" name="lon" hidden>
+                    <input type="text" value="<?php echo $response_ld->coord->lat; ?>" name="lat" hidden>
+                    
+                </div>
 
-    </div>
+            </div>
+        </button>
+    </form>
 
-    <div class="card" style="width: 18rem; background-image: url('img/rain.jpg')">
+    <!--Madrid Card -->
+    <form action="city.php" method="post">
+        <button class="no-style-btn">
+            <div id="kartica-su" class="kartica">
+                <div class="kartica-head">
+                    <h4>Madrid,</h4>
+                    <h4><?php echo $response_md->sys->country ?></h4>
+                    <img src="https://flagsapi.com/<?php echo $response_md->sys->country ?>/flat/48.png">
+                </div>
+                <div class="kartica-body">
+                    <div class="kartica-temp-holder">
+                        <img src="http://openweathermap.org/img/wn/<?php echo $response_md->weather[0]->icon ?>@2x.png" alt="">
+                        <p><?php echo round($response_md->main->temp) ?>° C</p>
+                    </div>
 
-        <div class="card-body">
-            <h5 id="name-ns" class="card-title"></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li id="temperature-ns" class="list-group-item"> </li>
-            <li id="country-ns" class="list-group-item"> </li>
-            <li id="humidity-ns" class="list-group-item"> </li>
-        </ul>
-        <div class="card-body">
+                    <p>Air Quality: <?php echo getAirQuality($response_air_md) ?></p>
+                    <p>Humidity: <?php echo $response_md->main->humidity ?>%</p>
+                    <p>Visibilty: <?php echo $response_md->visibility / 1000  ?>km</p>
+                    <input type="text" value="<?php echo $response_md->coord->lon; ?>" name="lon" hidden>
+                    <input type="text" value="<?php echo $response_md->coord->lat; ?>" name="lat" hidden>
+                    
+                </div>
 
-        </div>
+            </div>
+        </button>
+    </form>
 
-    </div>
+    <!--Washington Card -->
+    <form action="city.php" method="post">
+        <button class="no-style-btn">
+            <div id="kartica-su" class="kartica">
+                <div class="kartica-head">
+                    <h4>Washington,</h4>
+                    <h4><?php echo $response_w->sys->country ?></h4>
+                    <img src="https://flagsapi.com/<?php echo $response_w->sys->country ?>/flat/48.png">
+                </div>
+                <div class="kartica-body">
+                    <div class="kartica-temp-holder">
+                        <img src="http://openweathermap.org/img/wn/<?php echo $response_w->weather[0]->icon ?>@2x.png" alt="">
+                        <p><?php echo round($response_w->main->temp) ?>° C</p>
+                    </div>
 
-    <div class="card" style="width: 18rem; background-image: url('img/sunny2.jpg')">
+                    <p>Air Quality: <?php echo getAirQuality($response_air_w) ?></p>
+                    <p>Humidity: <?php echo $response_w->main->humidity ?>%</p>
+                    <p>Visibilty: <?php echo $response_w->visibility / 1000  ?>km</p>
+                    <input type="text" value="<?php echo $response_w->coord->lon; ?>" name="lon" hidden>
+                    <input type="text" value="<?php echo $response_w->coord->lat; ?>" name="lat" hidden>
+                    
+                </div>
 
-        <div class="card-body">
-            <h5 id="name-ni" class="card-title"></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li id="temperature-ni" class="list-group-item"> </li>
-            <li id="country-ni" class="list-group-item"> </li>
-            <li id="humidity-ni" class="list-group-item"> </li>
-        </ul>
-        <div class="card-body">
+            </div>
+        </button>
+    </form>
 
-        </div>
+    <!--Moscow Card -->
+    <form action="city.php" method="post">
+        <button class="no-style-btn">
+            <div id="kartica-su" class="kartica">
+                <div class="kartica-head">
+                    <h4>Moscow,</h4>
+                    <h4><?php echo $response_m->sys->country ?></h4>
+                    <img src="https://flagsapi.com/<?php echo $response_m->sys->country ?>/flat/48.png">
+                </div>
+                <div class="kartica-body">
+                    <div class="kartica-temp-holder">
+                        <img src="http://openweathermap.org/img/wn/<?php echo $response_m->weather[0]->icon ?>@2x.png" alt="">
+                        <p><?php echo round($response_m->main->temp) ?>° C</p>
+                    </div>
 
-    </div>
+                    <p>Air Quality: <?php echo getAirQuality($response_air_m) ?></p>
+                    <p>Humidity: <?php echo $response_m->main->humidity ?>%</p>
+                    <p>Visibilty: <?php echo $response_m->visibility / 1000  ?>km</p>
+                    <input type="text" value="<?php echo $response_m->coord->lon; ?>" name="lon" hidden>
+                    <input type="text" value="<?php echo $response_m->coord->lat; ?>" name="lat" hidden>
+                    
+                </div>
 
-    <div class="card" style="width: 18rem; background-image: url('img/rain.jpg')">
+            </div>
+        </button>
+    </form>
 
-        <div class="card-body">
-            <h5 id="name-zr" class="card-title"></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li id="temperature-zr" class="list-group-item"> </li>
-            <li id="country-zr" class="list-group-item"> </li>
-            <li id="humidity-zr" class="list-group-item"> </li>
-        </ul>
-        <div class="card-body">
-
-        </div>
-
-    </div>
-    <div class="card" style="width: 18rem; background-image: url('img/sunny2.jpg')">
-
-        <div class="card-body">
-            <h5 id="name-kg" class="card-title"></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li id="temperature-kg" class="list-group-item"> </li>
-            <li id="country-kg" class="list-group-item"> </li>
-            <li id="humidity-kg" class="list-group-item"> </li>
-        </ul>
-        <div class="card-body">
-
-        </div>
-
-    </div>
 </div>
 
 <?php require 'constants/footer.php'; ?>

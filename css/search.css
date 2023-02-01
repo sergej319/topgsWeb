@@ -1,3 +1,113 @@
-*{
-    font-family: 'Roboto Mono', monospace;
+.content-search{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    gap: 50px;
+    padding: 8% 15%;
+}
+.search-kartica{
+    width: 100%;
+    background-color: #ced4da;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 15px 30px;
+    box-shadow: 0 0 5px #222;
+    font-size: 20px;
+}
+.search-left{
+    width: 25%;
+}
+.search-left img{
+    width: 100%;
+    scale: 1.35;
+    margin-left: -25px;
+}
+.search-right{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+.search-right-sys h3{
+    margin: 0;
+}
+.search-right-info, .search-right-sys{
+    display: flex;
+    align-items: center;
+}
+.search-right-info{
+    width: 100%;
+    justify-content: space-between;
+}
+.search-right-info p{
+    margin-bottom: 0;
+}
+
+form{
+    width: 100%;
+    max-width: 600px;
+}
+.temp-holder{
+    background-color: #222;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 50px;
+}
+
+
+
+
+/* ========TYPOGRAPHY==========*/
+
+.geo-coords{
+    font-size: 16px;
+}
+@media(max-width: 800px){
+    .search-kartica{
+        font-size: 16px;
+    }
+    .geo-coords{
+    font-size: 13px;
+    }
+    .search-right h3{
+        font-size: 20px !important;
+    }
+    .search-right img{
+        max-width: 35px;
+    }
+}
+
+
+@media(max-width: 650px){
+    .content-search{
+        padding: 50px 10%;
+    }
+    .search-right{
+        width: 60%;
+    }
+    .search-left{
+        width: 40%;
+    }
+    .search-right-info{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .search-right-info p{
+        margin: 0;
+    }
+    
+}
+@media(max-width: 470px){
+    .geo-coords{
+        text-align: left;
+    }
+    .geo-coords span{
+        display: block;
+    }
 }
