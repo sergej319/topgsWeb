@@ -39,6 +39,7 @@ if ($_POST) {
                 $json_data_api_ll = file_get_contents($api_ll);
 
                 $response_data_api_ll = json_decode($json_data_api_ll);
+                $flag = $response_data_api_ll->sys->country === 'XK' ? "RS" : $response_data_api_ll->sys->country;
 
                 echo '<form action="city.php" method="post">
             <button class="search-kartica">
@@ -47,7 +48,7 @@ if ($_POST) {
                 </div>
                 <div class="search-right">
                     <div class="search-right-sys">
-                        <img style="margin-right: 10px;" src="https://flagsapi.com/' . $response_data_api_ll->sys->country . '/flat/48.png">
+                        <img style="margin-right: 10px;" src="https://flagsapi.com/' .  $flag . '/flat/48.png">
                         <h3>' . $v->name . '</h3>
                     </div>
 

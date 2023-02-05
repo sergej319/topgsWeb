@@ -1,11 +1,20 @@
-
-
+.content-my{
+    align-items: center;
+    background-color: #ffe;
+    padding: 5% 10%;
+}
+.city-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .kartica{
     border-radius: 20px;
     margin-bottom: 10%;
     background-color: transparent;
-    width: 40%;
+    width: 35%;
 }
 
 .kartica-head{
@@ -22,7 +31,7 @@
 }
 
 .kartica-body{
-    background-color: #f8f9fa;
+    background-color: #ced4da;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,4 +60,127 @@
 }
 .weather-holder-desc{
     text-transform: capitalize;
+}
+.hourly-table-wrapper{
+    width: 60%;
+    margin-bottom: 10%;
+}
+.hourly-table{
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ced4da;
+    box-shadow: 0 0 5px #222;
+    border-radius: 15px;
+}
+.time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+.time p{
+    margin: 0;
+    padding: 0;
+    
+}
+.dropdown-my-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+.dropdown-my{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ced4da;
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px 50px;
+    box-shadow: 0 0 5px #222;
+}
+.dropdown-temp{
+    width: 20%;
+}
+.dropdown-day{
+    width: 10%;
+}
+.dropdown-my p{
+    margin-bottom: 0;
+}
+.dropdown-icon-holder{
+    cursor: pointer;
+}
+
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.dropdown-my-info{
+    flex-direction: column;
+    
+}
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+    animation: rotateMenu 400ms ease-in-out forwards;
+    transform-origin: top center;
+}
+.main-info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+.temp-info table{
+    width: 100%;
+}
+.main-info p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+tr{
+    max-width: 650px;
+}
+tbody{
+    max-width: 500px;
+}
+
+
+@media(max-width: 1200px){
+    .city-info{
+        flex-direction: column;
+        align-items: center;
+    }
+    .kartica{
+        margin-bottom: 8%;
+        width: 50%;
+        max-width: 430px;
+        min-width: 430px;
+    }
+    .hourly-table-wrapper{
+        width: 100%;
+    }
+
+}
+
+@media(max-width: 700px){
+
+  
 }
