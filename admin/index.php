@@ -1,10 +1,13 @@
 <?php
 
 include "constants/header.php";
-
+include "constants/login-check.php";
 ?>
 
-<div style="min-height: 70vh;"></div>
+<div class="index-table" style="min-height: 80vh;">
+
+</div>
+
 
 <?php
 

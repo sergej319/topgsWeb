@@ -84,27 +84,40 @@ $row = $res->fetch_assoc();
     <div class="fav-city-card">
 
         <h2>Favorite cities</h2>
-        <form action="" class="fav-city-form">
-            <p>Subotica</p>
-            <img src="https://flagsapi.com/RS/flat/48.png">
-            <button class="remove-city">
-                Remove
-            </button>
-        </form>
-        <form action="" class="fav-city-form">
-            <p>Subotica</p>
-            <img src="https://flagsapi.com/RS/flat/48.png">
-            <button class="remove-city">
-                Remove
-            </button>
-        </form>
-        <form action="" class="fav-city-form">
-            <p>Subotica</p>
-            <img src="https://flagsapi.com/RS/flat/48.png">
-            <button class="remove-city">
-                Remove
-            </button>
-        </form>
+        <?php
+        $sql = "SELECT * FROM favorites WHERE id_user='" . $_SESSION['id_user'] . "'";
+
+        $res = mysqli_query(databaseConnect(), $sql);
+        $count = mysqli_num_rows($res);
+        if ($count > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                $id_favorite = $row['id_favorite'];
+                $id_city = $row['id_city'];
+                $lon = $row['lon'];
+                $lat = $row['lat'];
+                $city_name = $row['city_name'];
+                //Favorites api results
+                $api_query_fav = "https://api.openweathermap.org/data/2.5/weather?lat=" . $lat . "&lon=" . $lon . "&units=metric&appid=" . $api_key;
+                $json_fav = file_get_contents($api_query_fav);
+                $response_fav = json_decode($json_fav);
+        ?>
+                <form action="formHandler/deleteFavCity.php" class="fav-city-form" method="post">
+                    <input type="text" hidden name="id_city" value="<?php echo $id_city; ?>">
+                    <p style="width: 30%;"><?php echo $city_name; ?></p>
+                    <img src="https://flagsapi.com/<?php echo $response_fav->sys->country;  ?>/flat/48.png">
+                    <button style="width: 30%;" class="remove-city">
+                        Remove
+                    </button>
+                </form>
+
+        <?php
+            }
+        } else {
+            echo "<p>You don't have any favorite cities.</p>";
+        }
+
+
+        ?>
 
     </div>
 
@@ -171,7 +184,7 @@ $row = $res->fetch_assoc();
     console.log(air)
 
     navigator.geolocation.getCurrentPosition(position => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${api_key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${api_key}`)
             .then(res => {
                 if (!res.ok) {
                     throw Error("Weather data not available")

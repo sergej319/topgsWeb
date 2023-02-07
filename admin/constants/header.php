@@ -11,6 +11,7 @@
 
 <body>
     <header>
+        <?php include '../config/config.php'; ?>
 
 
         <nav class="navbar">
@@ -20,8 +21,9 @@
 
             <ul class="nav-menu">
                 <li class="nav-item-my"><a href="index.php" class="nav-link-my">Favorites</a></li>
-                <li class="nav-item-my"><a href="onama.php" class="nav-link-my">Users</a></li>
-                <li class="nav-item-my"><a href="profile.php" class="nav-link-my">Logout</a></li>
+                <li class="nav-item-my"><a href="manage-users.php" class="nav-link-my">Users</a></li>
+                <li class="nav-item-my"><a href="logs.php" class="nav-link-my">Logs</a></li>
+                <li class="nav-item-my"><a href="logout.php" class="nav-link-my">Logout</a></li>
             </ul>
 
 

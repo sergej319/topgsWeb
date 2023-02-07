@@ -44,13 +44,8 @@ if (isset($_POST)) {
     //var_dump($response);
 ?>
     <div class="content-my">
-        <?php
-        if(isset($_SESSION['saved_city'])){
-            echo "<p style='color: red; width: 100%; font-size: 20px; text-align: center;'>".$_SESSION['saved_city']."</p>";
-            unset($_SESSION['saved_city']);
-        }
-        
-        ?>
+
+
         <div class="city-info">
             <div class="kartica">
                 <div class="kartica-head">
@@ -405,9 +400,6 @@ if (isset($_POST['submit'])) {
     if(!empty($row)){
 
         $_SESSION['saved_city'] = "This city has already been saved";
-    
-
-
     }
     else{
 

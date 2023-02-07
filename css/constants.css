@@ -196,3 +196,14 @@ footer p{
     }
 
 }
+@media(max-width: 800px){
+    .logo{
+        font-size: 24px;
+    }
+}
+
+@media(max-width: 600px){
+    .logo{
+        display: none;
+    }
+}
