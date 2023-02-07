@@ -134,8 +134,25 @@ footer p{
     font-size: 16px;
     margin: 0;
 }
+.btn-book{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+    width: 60px;
+    background: transparent;
+    border: none;
+}
+.book{
+    width: 100%;
+}
 
-
+.book-show{
+    display: block;
+}
+.book-hide{
+    display: none;
+}
 @media(max-width: 1920px){
     .hamburger{
         display: block;

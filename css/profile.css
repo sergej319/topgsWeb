@@ -1,26 +1,175 @@
-.profile-img-holder{
-    width: 30%;
+.content-my{
+    background-color: transparent;
+    flex-wrap:unset;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
-.profile-img-holder img{
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    background-color: #CCCCCC;
+    padding: 40px;
+    border-radius: 15px;
     width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 5px #222;
+
 }
-.info-holder{
-    width: 60%;
+.profile-card-wrapper{
+    display: flex;
+    gap: 10%;
+    align-items: center;
+    justify-content: center;
+    
 }
-.info-holder h2, .info-holder p{
-    font-weight: bolder;
+.profile-card-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.info-holder h2{
-    font-size: 42px;
+.profile-card-right{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.info-holder p{
-    font-size: 24px;
+.profile-card-btns{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.show-profile-info{
+
+#btn-show-modal{    
+    margin: 0 auto;
+    width: 50%;
+    background-color: #222 !important;
+    padding: 2px 5px;
+    color: white !important;
+    border-radius: 50px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px;
+    
+}
+
+.show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hide{
+    display: none;
+}
+
+.modal-header-my{
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    background-color: #FFD300;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.modal-header-my h4{
+    margin: 0 !important;
+}
+.modal-body-my{
     width: 100%;
-    padding: 20px 0;
+}
+
+
+.modal-my{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+}
+.btn-modal-submit{
+    margin-top: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 0;
+    box-shadow: 0 0 5px #222;
+}
+.btn-modal-submit:hover{
+    opacity: 0.8;
+}
+.input-modal{
+    margin-bottom: 20px;
+    border-radius: 25px;
+    padding: 2px 15px;
+    border: 1px solid white;
+    box-shadow: 0 0 5px #222;
+}
+.input-modal:hover, .input-modal:active{
+    border: #222 solid 1px;
+}
+label{
+    text-align: left;
+    margin-left: 5px;
+}
+#exit-modal{
+    border: 1px solid #222;
+    border-radius: 10px;
+}
+
+.fav-city-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    box-shadow: 0 0 5px #222;
+    border-radius: 25px;
+}
+.fav-city-card h2{
+    width: 100%;
+    background-color: #222;
+    color: white;
+    padding: 20px 30px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    
+}
+.fav-city-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    padding: 20px 30px;
+}
+.remove-city{
+    background-color: #b21e35;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 15px;
+    padding: 2px 8px;
+}
+.kartica{
+    width: 100%;
+    max-width: unset;
+    margin-bottom: unset;
+}
+#weather{
+    width: 100%;
+    max-width: 600PX;
+}
+.kartica-middle-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

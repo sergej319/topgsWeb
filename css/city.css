@@ -18,15 +18,17 @@
 }
 
 .kartica-head{
+    position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
     color: white;
-    background-color: #222;
+    background-color: #3a0ca3;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     padding: 30px;
     box-shadow: 0 0 5px #222;
+
 
 }
 
@@ -42,13 +44,24 @@
     box-shadow: 0 0 5px #222;
 }
 .kartica-temp-holder{
+    
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.kartica-temp-holder img{
+    position: relative;
+    right: 20px;
+}
+.kartica-temp-holder h3{
+    position: relative;
+    right: 20px;
+}
+
 .kartica-temp-holder p, .kartica-temp-holder h3{
     margin: 0;
+    white-space: nowrap;
 }
 .kartica-left-holder p, .kartica-right-holder p {
     margin: 0;
@@ -57,6 +70,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 15px
 }
 .weather-holder-desc{
     text-transform: capitalize;
@@ -103,22 +117,16 @@
     width: 100%;
     padding: 5px 50px;
     box-shadow: 0 0 5px #222;
+    gap: 15px;
 }
-.dropdown-temp{
-    width: 20%;
-}
-.dropdown-day{
-    width: 10%;
-}
+
 .dropdown-my p{
     margin-bottom: 0;
 }
 .dropdown-icon-holder{
     cursor: pointer;
 }
-
-
-@keyframes growDown {
+    @keyframes growDown {
     0% {
         transform: scaleY(0)
     }
@@ -131,9 +139,17 @@
 }
 
 .dropdown-my-info{
+    padding: 20px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     flex-direction: column;
-    
+    border-right: #222 1px solid;
+    border-left: #222 1px solid;
+    border-bottom: #222 1px solid;
 }
+
+
 .hide{
     display: none;
 }
@@ -145,16 +161,13 @@
 .main-info{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
 }
 .temp-info table{
     width: 100%;
 }
-.main-info p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 tr{
     max-width: 650px;
 }
@@ -180,7 +193,27 @@ tbody{
 
 }
 
-@media(max-width: 700px){
-
-  
+@media(max-width: 570px){
+.dropdown-my{
+    padding: 5px 15px;
+    font-size: 3vw;
+}
+.hourly-table{
+    font-size: 3vw;
+    padding: 10px 15px;
+}
+.kartica{
+    min-width: unset;
+    font-size: 3vw;
+    width: 100%;
+}
+  .kartica-temp-holder h3{
+    font-size: 4vw;
+}
+.dropdown-my-info{
+    font-size: 3vw;
+}
+.time{
+    padding: 0 5px;
+}
 }

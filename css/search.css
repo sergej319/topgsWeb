@@ -33,12 +33,15 @@
     justify-content: space-between;
     gap: 10px;
 }
+
 .search-right-sys h3{
     margin: 0;
 }
 .search-right-info, .search-right-sys{
+    position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 .search-right-info{
     width: 100%;

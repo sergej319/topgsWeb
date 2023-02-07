@@ -18,10 +18,11 @@
 </head>
 <?php
 // Include Request and Response classes
-require "config/config.php";
+
 require 'constants/header.php';
+require 'constants/login-check.php';
 //api poziv
-if ($_POST) {
+if (isset($_POST)) {
     $api_query = 'http://api.openweathermap.org/geo/1.0/direct?q=' . $_POST['city_name'] . '&limit=5&appid=' . $api_key;
     $json_data_api_query = file_get_contents($api_query);
 
@@ -74,8 +75,8 @@ if ($_POST) {
     } else {
     ?>
 
-        <div style="display: flex;">
-            <img style="margin: 0 auto;" id="loadSound" src="img/frogy.jpg" alt="">
+        <div style="display: flex; min-height: 100vh;">
+            <img style="margin: 0 auto; object-fit: contain;" id="loadSound" src="img/frogy.jpg" alt="">
             <audio id="frog" src="sounds/frog.mp3"></audio>
             <script>
                 document.getElementById('loadSound').onmouseover = function() {
@@ -90,8 +91,8 @@ if ($_POST) {
 } else {
     ?>
 
-    <div style="min-height: 70vh;">
-        <img id="loadSound" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Andrew_tate_%28cropped%29.jpg/640px-Andrew_tate_%28cropped%29.jpg" alt="">
+    <div style="display: flex; min-height: 100vh;">
+        <img style="margin: 0 auto; object-fit: contain;" id="loadSound" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Andrew_tate_%28cropped%29.jpg/640px-Andrew_tate_%28cropped%29.jpg" alt="">
         <audio id="frog" src="sounds/frog.mp3"></audio>
         <script>
             window.onmouseover = function() {

@@ -19,4 +19,47 @@ function getAirQuality($response_data_api_query)
             break;
     }
 }
+
+function getProfile(mysqli $connection, int $id_user):array
+{
+    $data = [];
+    $sql = "SELECT * FROM users WHERE  id_user='$id_user'";
+
+    $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data = $row;
+        }
+    }
+
+    return $data;
+}
+/**
+ * @param string $str The string to sanitize
+ * @return string Sanitized $str
+ */
+function sanitize(string $str): string
+{
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+
+function is_ajax(): bool
+{
+    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+}
+
+function updateProfile(string $fname,string $lname, string $username, string $email, int $id_user, mysqli $connection): bool
+{
+
+    $sql = "UPDATE users SET fname = '$fname', lname = '$lname', username='$username', email='$email'";
+
+
+
+    $sql .= " WHERE id_user = $id_user";
+
+    mysqli_query($connection, $sql) or die(mysqli_error($connection));
+
+    return mysqli_affected_rows($connection) > 0;
+}
 ?>

@@ -1,0 +1,83 @@
+*{
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.form{
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5% 0;
+    border: none;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/storm.jpg");
+    background-position: 0 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+input{
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
+    border-radius: 5px;
+}
+.button{
+    justify-content: center;
+    background-color: #222;
+    color: white;
+    width: 100%;
+    margin-bottom: 15px !important;
+    border-radius: 5px !important;
+    margin-top: 5px !important;
+    padding: 5px !important;
+}
+h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 27px;
+}
+p{
+    margin-bottom: 0;
+}
+#reg-form, #log-form{
+    background-color: white;
+    opacity: 0.9;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    
+}
+#log-form{
+    background-color: white;
+    opacity: 0.9;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.input-field{
+    margin-bottom: 15px;
+}
+@media(max-width: 500px){
+    #reg-form, #log-form{
+
+    min-width: 250px;
+    
+}
+
+}
+
+
