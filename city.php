@@ -405,13 +405,48 @@ if (isset($_POST['submit'])) {
 
         $sql1 = "INSERT INTO favorites (id_city, id_user, lon, lat, city_name) VALUES ('$id_city','$id_user', '$lon', '$lat', '$city_name')";
         mysqli_query(databaseConnect(), $sql1);
+
+
+        $sql_check_fav = "SELECT * FROM statistics WHERE city_name='$city_name' LIMIT 1";
+        //var_dump($_POST)
+        $res_check_fav = mysqli_query(databaseConnect(), $sql_check_fav);
+        $row_check_fav = $res_check_fav->fetch_assoc();
+        if(empty($row_check_fav)){
+            $sql_fav_not_exists = "INSERT INTO statistics (city_name, favorited) VALUES ('$city_name', favorited + 1)";
+            mysqli_query(databaseConnect(), $sql_fav_not_exists);
+        }else{
+            $sql_fav_exists = "UPDATE statistics SET  favorited=favorited + 1 WHERE city_name = '$city_name'";
+            mysqli_query(databaseConnect(), $sql_fav_exists);
+        }
+        
+
     
     }
 
 } else if (isset($_POST['cancel'])) {
+    $id_user = $_POST['id_user'];
+    $id_city = $_POST['id_favourites'];
+    $city_name = $_POST['city_name'];
+    $lon = $_POST['lon'];
+    $lat = $_POST['lat'];
 
     $sql3 = "DELETE FROM favorites WHERE id_city='".$response->id."' AND id_user='".$_SESSION['id_user']."'";
     mysqli_query(databaseConnect(), $sql3);
+
+    $sql_check_fav1 = "SELECT * FROM statistics WHERE city_name='$city_name' LIMIT 1";
+    //var_dump($_POST)
+    $res_check_fav1 = mysqli_query(databaseConnect(), $sql_check_fav1);
+    $row_check_fav1 = $res_check_fav1->fetch_assoc();
+    if (!empty($row_check_fav1)) {
+        if($row_check_fav1 > 0)
+        $sql_fav_exists1 = "UPDATE statistics SET  favorited=favorited - 1 WHERE city_name = '$city_name'";
+        mysqli_query(databaseConnect(), $sql_fav_exists1);
+    } else{
+        $sql_fav_delete = "DELETE FROM statistics WHERE city_name = '$city_name'";
+        mysqli_query(databaseConnect(), $sql_fav_delete);
+    }
+
+
 
 }
 

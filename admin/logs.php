@@ -1,41 +1,39 @@
 <?php
 
 include "constants/header.php";
-include "constants/login-check.php";
+//include "constants/login-check.php";
 ?>
 
-<div class="index-table" style="min-height: 80vh;">
-    <table>
-        <tr>
-            <th>IP_ADDRESS</th>
-            <th>DEVICE_TYPE</th>
-            <th>USER_AGENT</th>
-            <th>DATE_TIME</th>
 
-        </tr>
+<div class="container ">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.php" class="link-dark">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo $titles[$page] ?></li>
+        </ol>
+    </nav>
 
-        <?php
-        $sql = "SELECT * from logs";
-        $res = mysqli_query(databaseConnect(), $sql);
-        while ($row = mysqli_fetch_assoc($res)) {
-            $ip_address = $row['ip_address'];
-            $device_type = $row['device_type'];
-            $user_agent = $row['user_agent'];
-            $date_time = $row['date_time'];
-
-        ?>
+    <table id="logs" class="table table-hover display" style="width:100%">
+        <thead>
             <tr>
-                <td><?php echo $ip_address ?></td>
-                <td><?php echo $device_type ?></td>
-                <td><?php echo $user_agent ?></td>
-                <td><?php echo $date_time ?></td>
+                <th>No</th>
+                <th>Ip address</th>
+                <th>Device type</th>
+                <th>User agent</th>
+                <th>Date time</th>
+                <th>Actions</th>
             </tr>
-
-
-        <?php
-        }
-
-        ?>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Ip address</th>
+                <th>Device type</th>
+                <th>User agent</th>
+                <th>Date time</th>
+                <th>Actions</th>
+            </tr>
+        </tfoot>
     </table>
 </div>
 

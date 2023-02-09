@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,14 +14,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&700display=swap" rel="stylesheet">
 </head>
 
-<?php 
-include 'constants/header.php'; 
-if(isset($_SESSION['user'])){
+<?php
+include 'constants/header.php';
+if (isset($_SESSION['user'])) {
     header('location:/topgs/index.php');
 }
 ?>
 <div class="form">
-    <form id="reg-form" method="POST" action="formHandler/register_user.php">
+
+    <form id="reg-form" method="POST" action="register_user.php">
+        <?php if (isset($_SESSION['reg-msg'])) { ?>
+            <div>
+                <p><?php echo $_SESSION['reg-msg']; ?></p>
+            </div>
+        <?php
+
+            unset($_SESSION['reg-msg']);
+        } ?>
         <h2>Sign up</h2>
         <span>First name:</span>
         <input type="text" name="fname" class="input-field">
@@ -31,8 +38,8 @@ if(isset($_SESSION['user'])){
         <input type="text" name="lname" class="input-field">
         <span>Username:</span>
         <input type="text" name="username" class="input-field">
-        <?php 
-        if(isset($_GET['m'])){
+        <?php
+        if (isset($_GET['m'])) {
             echo 'Username already exists';
         }
         ?>

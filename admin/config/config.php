@@ -20,3 +20,10 @@ function databaseConnect()
 
     return $connection;
 }
+$titles = [
+    'index.php' => 'Create QR codes',
+    'logs.php' => 'Manage Logs',
+    'manage-users.php' => 'Manage users',
+];
+
+
