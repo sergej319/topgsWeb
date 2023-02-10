@@ -13,11 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&700display=swap" rel="stylesheet">
 </head>
 
-<?php
-require 'constants/header.php'; ?>
 
-<div style="min-height: 80vh; display: flex; justify-content: center; align-items:center; " class=" form">
-    <form style="background-color: white; opacity: 0.9; padding: 20px; border-radius: 15px; display: flex; flex-direction: column; max-width: 500px" id="log-form" action="" method="post">
+<?php include 'config/config.php'; ?>
+<?php include 'config/functions.php'; ?>
+
+<body style="min-height: 80vh;">
+    <div style=" min-height: 100vh; display: flex; justify-content: center; align-items:center; " class=" form">
+    <form style="background-color: white; opacity: 0.9; padding: 20px; border-radius: 15px; display: flex; flex-direction: column; max-width: 500px" id="log-form" action="login-user.php" method="post">
         <h2>Login</h2>
         <span>Username:</span>
         <input type="text" name="username" class="input-field" style="margin-bottom: 20px">
@@ -26,30 +28,11 @@ require 'constants/header.php'; ?>
         <input type="submit" name="submit" value="LOG IN" class="button" style="margin-bottom: 20px; background-color: #222; color: white;">
         <p>Don't have an account? <a href="register.php">Create one!</a></p>
     </form>
-</div>
+    </div>
 
 
-</form>
+    </form>
 
-<?php include 'constants/footer.php'; ?>
+</body>
 
-<?php
-
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * from admins WHERE username='$username' AND password='$password'";
-
-    $res = mysqli_query(databaseConnect(), $sql);
-    $row = $res->fetch_assoc();
-
-    if (!empty($row)) {
-        $_SESSION['admin'] = $row['username'];
-        $_SESSION['id_admin'] = $row['id_admin'];
-        header('location:/topgs/admin/index.php');
-    } else {
-        header('location:/topgs/admin/login.php');
-    }
-}
-?>
+</html>

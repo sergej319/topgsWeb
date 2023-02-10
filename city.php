@@ -438,13 +438,14 @@ if (isset($_POST['submit'])) {
     $res_check_fav1 = mysqli_query(databaseConnect(), $sql_check_fav1);
     $row_check_fav1 = $res_check_fav1->fetch_assoc();
     if (!empty($row_check_fav1)) {
-        if($row_check_fav1 > 0)
+        if($row_check_fav1['favorited'] > 0){
         $sql_fav_exists1 = "UPDATE statistics SET  favorited=favorited - 1 WHERE city_name = '$city_name'";
         mysqli_query(databaseConnect(), $sql_fav_exists1);
-    } else{
-        $sql_fav_delete = "DELETE FROM statistics WHERE city_name = '$city_name'";
-        mysqli_query(databaseConnect(), $sql_fav_delete);
-    }
+        } else {
+            $sql_fav_delete = "DELETE FROM statistics WHERE city_name = '$city_name'";
+            mysqli_query(databaseConnect(), $sql_fav_delete);
+        }
+    } 
 
 
 

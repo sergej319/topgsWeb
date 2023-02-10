@@ -1,7 +1,7 @@
 <?php
 
 include "constants/header.php";
-//include "constants/login-check.php";
+include "constants/login-check.php";
 ?>
 
 
