@@ -43,7 +43,7 @@ if (isset($_SESSION['user'])) {
             echo 'Username already exists';
         }
         ?>
-        <span>Email:</span>
+        <span>Emailsssssssssssss:</span>
         <input type="text" name="email" class="input-field">
         <span>Password:</span>
         <input type="password" name="password" class="input-field">

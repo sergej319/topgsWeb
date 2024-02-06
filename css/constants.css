@@ -120,6 +120,7 @@ a{
     justify-content: space-evenly;
     gap: 5%;
     padding: 5%;
+    min-height: 80vh;
 }
 footer{
     background-color: #222;

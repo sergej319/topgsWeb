@@ -19,23 +19,25 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 
 $sql = "SELECT * FROM users WHERE username='".$_POST['username']."' LIMIT 1";
 
-$sql2 = "INSERT INTO logs (ip_address, device_type, user_agent, date_time) VALUES('" . $ip . "','" . $deviceType . "','" . $_SERVER['HTTP_USER_AGENT'] . "' , '" . date('h:i:s D.m.Y') . "');";
+$sql2 = "INSERT INTO logs (ip_address, device_type, user_agent) VALUES('" . $ip . "','" . $deviceType . "','" . $_SERVER['HTTP_USER_AGENT'] . "')";
 
 //var_dump($_POST)
 $res = mysqli_query(databaseConnect(), $sql);
+//var_dump($res);
 $row = $res->fetch_assoc();
-
-if(!empty($row)){
+//var_dump($row);
+//return;
+if($row != NULL){
     $hash = $row['password'];
 
-    if (password_verify($_POST['password'], $hash)) {
+    if ($_POST['password']) {
         $_SESSION['id_user'] = $row['id_user'];
         $_SESSION['user'] = $row['username'];
         mysqli_query(databaseConnect(), $sql2);
-        header('location:/topgs/index.php');
+        header('Location:/topgs/index.php');
     } else {
         $_SESSION['login-msg'] = "Your login info is invalid";
-        header('location:/topgs/login.php');
+        header('Location:/topgs/login.php');
     }
 }
 

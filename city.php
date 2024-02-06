@@ -403,6 +403,36 @@ if (isset($_POST['submit'])) {
     }
     else{
 
+        // //The url you wish to send the POST request to
+        // $url = 'http://localhost/api_test2/api/post/create.php';
+
+        // //The data you want to send via POST
+        // $fields = [
+        //     'id_user' => $id_user,
+        //     'id_city' => $id_city,
+        //     'city_name' => $city_name,
+        //     'lon' => $lon,
+        //     'lat' => $lat,
+        // ];
+
+        // //url-ify the data for the POST
+        // $fields_string = http_build_query($fields);
+
+        // //open connection
+        // $ch = curl_init();
+
+        // //set the url, number of POST vars, POST data
+        // curl_setopt($ch,CURLOPT_URL, $url);
+        // curl_setopt($ch,CURLOPT_POST, true);
+        // curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+        // //So that curl_exec returns the contents of the cURL; rather than echoing it
+        // curl_setopt($ch,CURLOPT_RETURNTRANSFER, true); 
+
+        // //execute post
+        // $result = curl_exec($ch);
+        // var_dump($result);
+
         $sql1 = "INSERT INTO favorites (id_city, id_user, lon, lat, city_name) VALUES ('$id_city','$id_user', '$lon', '$lat', '$city_name')";
         mysqli_query(databaseConnect(), $sql1);
 

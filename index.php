@@ -21,56 +21,58 @@ require 'api_data/api_index.php';
 ?>
 <div class="content-my">
     <?php
+    //http://localhost/api_test2/api/post/read.php
+
+   
+    
     ?>
     <?php if (isset($_SESSION['user'])) {
-        $sql = "SELECT * FROM favorites WHERE id_user='".$_SESSION['id_user']."'";
-        $res = mysqli_query(databaseConnect(), $sql);
-        $count = mysqli_num_rows($res);
-        if($count > 0){
-            while($row=mysqli_fetch_assoc($res)){
-                $id_favorite = $row['id_favorite'];
-                $id_city = $row['id_city'];
-                $lon = $row['lon'];
-                $lat = $row['lat'];
-                $city_name = $row['city_name'];
 
-                    //Favorites api results
-                    $api_query_fav = "https://api.openweathermap.org/data/2.5/weather?lat=".$lat."&lon=".$lon."&units=metric&appid=" . $api_key;
-                    $json_fav = file_get_contents($api_query_fav);
-                    $response_fav = json_decode($json_fav);
+        $testingApi = "http://localhost/api_test2/api/post/read.php";
+        $json = file_get_contents($testingApi);
+        $responseJSON = json_decode($json);
 
-                    //Favorites Air Pollution
-                    $api_query_air_fav = "http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=44.787197&lon=20.457273&appid=" . $api_key;
-                    $json_air_fav = file_get_contents($api_query_air_fav);
-                    $response_air_fav = json_decode($json_air_fav);
+        if(count($responseJSON) > 0){
+        foreach($responseJSON as $rj){
 
-                ?>
-                <form action="city.php" method="post">
+            $api_query_fav = "https://api.openweathermap.org/data/2.5/weather?lat=".$rj->lat."&lon=".$rj->lon."&units=metric&appid=" . $api_key;
+            $json_fav = file_get_contents($api_query_fav);
+            $response_fav = json_decode($json_fav);
+
+            //Favorites Air Pollution
+            $api_query_air_fav = "http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=".$rj->lat."&lon=".$rj->lon."&appid=" . $api_key;
+            $json_air_fav = file_get_contents($api_query_air_fav);
+            $response_air_fav = json_decode($json_air_fav);
+            if($_SESSION['id_user'] == $rj->id_user){
+            echo '
+            <form action="city.php" method="post">
                     <button class="no-style-btn">
                         <div id="kartica-su" class="kartica">
                             <div class="kartica-head">
-                                <h4><?php echo $response_fav->name; ?></h4>
-                                <h4><?php echo $response_fav->sys->country ?></h4>
-                                <img src="https://flagsapi.com/<?php echo $response_fav->sys->country ?>/flat/48.png">
+                                <h4>'.$response_fav->name .'</h4>
+                                <h4>'.$response_fav->sys->country.' </h4>
+                                <img src="https://flagsapi.com/'.$response_fav->sys->country.'/flat/48.png">
                             </div>
                             <div class="kartica-body">
                                 <div class="kartica-temp-holder">
-                                    <img src="http://openweathermap.org/img/wn/<?php echo $response_fav->weather[0]->icon ?>@2x.png" alt="">
-                                    <p><?php echo round($response_fav->main->temp) ?>° C</p>
+                                    <img src="http://openweathermap.org/img/wn/'.$response_fav->weather[0]->icon.'@2x.png" alt="">
+                                    <p>'.round($response_fav->main->temp) .'° C</p>
                                 </div>
 
-                                <p>Air Quality: <?php echo getAirQuality($response_air_fav) ?></p>
-                                <p>Humidity: <?php echo $response_fav->main->humidity ?>%</p>
-                                <p>Visibilty: <?php echo $response_fav->visibility / 1000  ?>km</p>
-                                <input type="text" value="<?php echo $response_fav->coord->lon; ?>" name="lon" hidden>
-                                <input type="text" value="<?php echo $response_fav->coord->lat; ?>" name="lat" hidden>
+                                <p>Air Quality: '.getAirQuality($response_air_fav) .'</p>
+                                <p>Humidity: '.$response_fav->main->humidity .'%</p>
+                                <p>Visibilty: '.$response_fav->visibility / 1000 .'  km</p>
+                                <input type="text" value="'.$response_fav->coord->lon.'" name="lon" hidden>
+                                <input type="text" value="'.$response_fav->coord->lat.'" name="lat" hidden>
                             </div>
 
                         </div>
                     </button>
                 </form>
-                <?php
-            }
+            ';}
+
+        }
+        
         }else{?>
             <div style="min-height: 70vh; display: flex; align-items: center; justify-content: center;"><p style="font-size: 36px;">You haven't added any favorites yet.</p></div>
             <?php

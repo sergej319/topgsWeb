@@ -41,7 +41,10 @@ if (!filter_var($ip, FILTER_VALIDATE_IP)) {
     </head>
 
     <?php
-    require 'constants/header.php'; ?>
+    require 'constants/header.php'; 
+    //var_dump($_SESSION['login-msg'])
+    ?>
+
     <div class="form">
         <form id="log-form" action="formHandler/login_user.php" method="post" >
                 <h2>Login</h2>
