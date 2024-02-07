@@ -1,6 +1,6 @@
 <footer>
     <p>Developed by Top G’s ©
-        2023, Subotica, Serbia</p>
+        2024, Subotica, Serbia</p>
 </footer>
 
 <script src="scripts/navbar.js"></script>

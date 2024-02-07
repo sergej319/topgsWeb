@@ -2,7 +2,7 @@
 
 $api_key = '317875d9da97449bd31293b89a4d994e';
 
-define("CONFPARAMS", ['localhost', 'root', '', 'topgs']);
+define("CONFPARAMS", ['localhost', 'root', '', 'topgs23']);
 session_start();
 
 function databaseConnect()

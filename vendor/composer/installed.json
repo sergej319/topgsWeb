@@ -46,6 +46,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
+                    "Controller\\": "./controllers/",
                     "PHPMailer\\PHPMailer\\": "src/"
                 }
             },

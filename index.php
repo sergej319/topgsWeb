@@ -34,7 +34,7 @@ require 'api_data/api_index.php';
 
         if(count($responseJSON) > 0){
         foreach($responseJSON as $rj){
-
+            
             $api_query_fav = "https://api.openweathermap.org/data/2.5/weather?lat=".$rj->lat."&lon=".$rj->lon."&units=metric&appid=" . $api_key;
             $json_fav = file_get_contents($api_query_fav);
             $response_fav = json_decode($json_fav);
@@ -70,8 +70,8 @@ require 'api_data/api_index.php';
                     </button>
                 </form>
             ';}
-
         }
+        
         
         }else{?>
             <div style="min-height: 70vh; display: flex; align-items: center; justify-content: center;"><p style="font-size: 36px;">You haven't added any favorites yet.</p></div>

@@ -380,6 +380,7 @@ if (isset($_POST)) {
 
     })
 </script>
+
 <?php
 
 require 'constants/footer.php';

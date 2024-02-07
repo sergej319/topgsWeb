@@ -3,9 +3,7 @@
 include "constants/header.php";
 include "constants/login-check.php";
 ?>
-
-
-<div class="container ">
+<div class="container" style="min-height: 80vh; ">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php" class="link-dark">Home</a></li>

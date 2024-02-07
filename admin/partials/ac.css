@@ -1,0 +1,151 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+}
+header{
+    padding: 20px 8%;
+    background-color: #222;
+}
+.navbar{
+    padding: 1% 0;
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+.nav-item-my{
+    list-style-type: none !important;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    
+    color: #fff;
+}
+li{
+    text-decoration: none;
+}
+.nav-link-my{
+    color: white;
+}
+.logo{
+    
+    color: #fff;
+    text-decoration: none;
+}
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    align-self: flex-end;
+}
+
+.nav-branding{
+    font-size: 2rem;
+
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #ced4da;
+}
+.card{
+   /*background-image: url("../img/rain.jpg") !important;*/
+    color: white;
+    text-shadow: 0 0 0 #222 5px;
+    margin-bottom: 5%;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 5px #222;
+    transition: 0.2s ease;
+    border-radius: 40px !important;
+    padding: 10px;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.list-group-item{
+    background: transparent !important;
+    color: white !important;
+    text-shadow: 0 0 10px #222;
+    font-weight: bolder;
+}
+.content-my{
+    background-color: #c0b9dd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5%;
+    padding: 8%;
+}
+footer{
+    background-color: #222;
+    color: #ced4da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 40px;
+    
+}
+footer p{
+    font-size: 16px;
+    margin: 0;
+}
+.hamburger{
+    display: none;
+}
+
+@media(max-width: 700px){
+    .hamburger{
+        display: block;
+        justify-self: flex-end;
+
+    }
+    .hamburger.active{
+        position: fixed;
+        right: 5%;
+        z-index: 99;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px); 
+        height: 100vh;
+        z-index: 9;
+        padding: 10% 0;
+    }
+
+    .nav-menu.active{
+        left: 0;
+        top: 0;
+
+    }
+
+}
