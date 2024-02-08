@@ -19,7 +19,7 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 
 $sql = "SELECT * FROM users WHERE username='".$_POST['username']."' LIMIT 1";
 
-$sql2 = "INSERT INTO logs (ip_address, device_type, user_agent) VALUES('" . $ip . "','" . $deviceType . "','" . $_SERVER['HTTP_USER_AGENT'] . "')";
+$sql2 = "INSERT INTO logs (ip_address, device_type, date_time, user_agent) VALUES('" . $ip . "','" . $deviceType . "',  NOW(), '" . $_SERVER['HTTP_USER_AGENT'] . "')";
 
 //var_dump($_POST)
 $res = mysqli_query(databaseConnect(), $sql);
